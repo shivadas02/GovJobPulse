@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: govjobpulse
+    env: node
+    buildCommand: npm install
+    startCommand: node server.jsservices:
+  - type: web
+    name: govjobpulse
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
