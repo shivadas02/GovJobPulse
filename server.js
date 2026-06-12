@@ -11,6 +11,32 @@ require(
 "./src/scheduler/jobScheduler"
 );
 
+require("dotenv").config();
+
+const express = require("express");
+const app = express();
+
+const connectDB =
+require("./src/database/connect");
+
+const bot =
+require("./src/bot/bot");
+
+require(
+"./src/scheduler/jobScheduler"
+);
+
+// Health check route for Render
+app.get("/", (req, res) => {
+  res.send("GovJobPulse Running");
+});
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
 connectDB();
 
 bot.start(async (ctx) => {

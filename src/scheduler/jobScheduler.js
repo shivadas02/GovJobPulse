@@ -5,7 +5,7 @@ require("../scrapers/sscScraper");
 
 cron.schedule(
 
-"* * * * *",
+"0 8 * * *",
 
 async()=>{
 
